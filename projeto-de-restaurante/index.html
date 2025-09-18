@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterPizza</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/445376dfc0.js" crossorigin="anonymous"></script>
+    <script src="index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxygen:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxygen:wght@300;400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <h1><img src="./image/ChatGPT Image 19 de ago. de 2025, 20_35_27.png" alt=""></h1>
+    <header>
+        <p>Bem-vindo ao MasterPizza, o melhor lugar para saborear pizzas deliciosas!</p>
+        <p>Explore nosso cardápio e faça seu pedido online.</p>
+    </header>
+    <nav class="nav-main">
+
+        <ul>
+            <li><a href="">Inicio </a></li>
+            <li><a href="#pizzas-more-sold">Mais Vendidos</a></li>
+            <li><a href="#traditional-pizzas">Pizzas Tradicionais</a></li>
+            <li><a href="#candy-pizzas">Pizzas Doces</a></li>
+            <li><a href="#drinks">Bebidas</a></li>
+            <li><a href="#contact">Contato</a></li>
+            <li class="cart">
+                <a href="#nav-main"><i class="fa-solid fa-cart-shopping"></i></a>
+                <p class="message">Seu carrinho esta vazio!</p>
+
+                <div id="cart-container" class="cart-container">
+                    <ul id="cart-items"></ul>
+
+                    <div class="cart-footer">
+                    <p id="cart-total"></p>
+                    <button id="checkout-btn">Fazer Pedido</button>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Confira seus dados</h2>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" placeholder="Digite seu Nome" required>
+
+            <label for="address">Endereço:</label>
+            <input type="text" id="address" placeholder="Digite seu Endereço" required>
+
+            <label for="phone">Telefone:</label>
+            <input type="tel" id="phone" placeholder="Digite seu telefone" required>
+
+            <div style="margin-top:15px;">
+                <button id="submitOrder">Pedir</button>
+                <button id="closeModal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section id="pizzas-more-sold">
+            <h2>Pizzas mais vendidas</h2>
+            <ul>
+                <li class="pizza-hot" data-name="Pizza Margherita" data-price="79.90">
+                    <img src="https://guiadacozinha.com.br/wp-content/uploads/2007/01/Pizza-marguerita-caseira.webp"
+                        alt="Pizza Margherita">
+                    <h3>Pizza Margherita</h3>
+                    <p>Tomate, mussarela, manjericão fresco e azeite de oliva</p>
+                    <span>R$ 79,90</span>
+                </li>
+                <li class="pizza-hot" data-name="Pizza Filé com Cheddar" data-price="79.90">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/11/91/f5/b0/pizza-de-file-mignon.jpg"
+                        alt="filé com cheddar">
+                    <h3>Pizza Filé com Cheddar</h3>
+                    <p>Filé mignon, cheddar, orégano e queijo mussarela</p>
+                    <span>R$ 79,90</span>
+                </li>
+                <li class="pizza-hot" data-name="Pizza da Casa" data-price="89.90">
+                    <img src="https://media.istockphoto.com/id/1349383878/pt/foto/hawaiian-pizza-with-ham-and-pineapple.jpg?s=612x612&w=0&k=20&c=6SqyfaQBXdezFzVLaa-BHDqqvl8UWQTj-wYDqao7SPs="
+                        alt="Pizza da Casa">
+                    <h3>Pizza da Casa</h3>
+                    <p>Presunto, queijo, azeitonas verdes, cebola, orégano, calabresa e ovo.</p>
+                    <span>R$ 89,90</span>
+                </li>
+                <li class="pizza-hot" data-name="Pizza Camarão com Rúcula" data-price="79.90">
+                    <img src="https://img.freepik.com/fotos-premium/pizza-de-camarao-e-cogumelos-com-rucula-em-uma-placa-de-madeira-e-legumes-no-fundo_491130-1744.jpg"
+                        alt="pizza de camarão">
+                    <h3>Pizza Camarão com Rúcula</h3>
+                    <p>Camarão, rúcula, cebola, champigon, queijo.</p>
+
+                    <span>R$ 79,90</span>
+                </li>
+            </ul>
+        </section>
+        <section id="traditional-pizzas">
+            <h2>Pizzas Tradicionais</h2>
+            <ul>
+                <li class="normal-pizza" data-name="Pizza de Calabresa" data-price="69.90">
+                    <img src="https://png.pngtree.com/thumb_back/fh260/background/20240720/pngtree-taking-slice-picture-of-prepared-delicious-pizza-with-sausage-rings-and-image_15902897.jpg"
+                        alt="">
+                    <h3>Pizza de Calabresa</h3>
+                    <p>Calabresa, cebola, azeitonas preta e orégano.</p>
+                    <span>R$ 69,90</span>
+                </li>
+                <li class="normal-pizza" data-name="Pizza Portuguesa" data-price="69.90">
+                    <img src="https://maisreceitassite.wordpress.com/wp-content/uploads/2016/02/receita-de-pizza-portuguesa-1.jpg" alt="">
+                    <h3>Pizza Portuguesa</h3>
+                    <p>Presunto, queijo, ovo, cebola, azeitonas verdes e orégano.</p>
+                    <span>R$ 69,90</span>
+                </li>
+                <li class="normal-pizza" data-name="Pizza de Frango com Catupiry" data-price="69.90">
+                    <img src="https://st2.depositphotos.com/6844852/10321/i/450/depositphotos_103217426-stock-photo-palmetto-and-catupiry.jpg"
+                        alt="">
+                    <h3>Pizza de Frango com Catupiry</h3>
+                    <p>Frango desfiado, catupiry, milho e azeitonas verdes.</p>
+                    <span>R$ 69,90</span>
+                </li>
+                <li class="normal-pizza" data-name="Pizza de Camarão" data-price="89.90">
+                    <img src="https://imperiodasesfihas.com.br/wp-content/uploads/2019/01/camarao2.jpg" alt="">
+                    <h3>Pizza de Camarão</h3>
+                    <p>Camarões, catupiry, cebola e pimentão.</p>
+                    <span>R$ 89,90</span>
+                </li>
+                <li class="normal-pizza" data-name="Pizza de Rúcula com Tomate Seco" data-price="69.90">
+                    <img src="https://img.cdndsgni.com/preview/10072895.jpg" alt="">
+                    <h3>Pizza de Rúcula com Tomate Seco</h3>
+                    <p>Rúcula fresca, tomate seco, queijo de cabra e azeite de oliva.</p>
+                    <span>R$ 69,90</span>
+                </li>
+                <li class="normal-pizza" data-name="Pizza Quatro Queijos" data-price="69.90">
+                    <img src="https://www.portalumami.com.br/app/uploads/2021/07/Pizza-4-queijos.jpg" alt="">
+                    <h3>Pizza Quatro Queijos</h3>
+                    <p>Mussarela, gorgonzola, parmesão e catupiry.</p>
+                    <span>R$ 69,90</span>
+                </li>
+                <li class="normal-pizza" data-name="Pizza de Brócolis com Bacon" data-price="69.90">
+                    <img src="https://guiadacozinha.com.br/wp-content/uploads/2007/01/Pizza-de-brocolis-com-bacon.jpg"
+                        alt="">
+                    <h3>Pizza de Brócolis com Bacon</h3>
+                    <p>Brócolis, bacon crocante, queijo e alho.</p>
+                    <span>R$ 69,90</span>
+                </li>
+                <li class="normal-pizza" data-name="Pizza de Lombo" data-price="69.90">
+                    <img src="https://img.freepik.com/fotos-premium/pizza-brasileira-tradicional-com-lombo-canadense-com-cogumelos_425154-261.jpg"
+                        alt="">
+                    <h3>Pizza de Lombo</h3>
+                    <p>Lombo, cebola, champignon e orégano.</p>
+                    <span>R$ 69,90</span>
+                </li>
+            </ul>
+        </section>
+        <section id="candy-pizzas">
+            <h2>Pizzas Doces</h2>
+            <ul>
+                <li class="candy-pizza" data-name="Pizza de Chocolate com Morango" data-price="59.90">
+                    <img src="https://blog.novasafra.com.br/wp-content/uploads/2016/01/pizza-de-brigadeiro-780x360.jpg"
+                        alt="chocolate pizza">
+                    <h3>Pizza de Chocolate com Morango</h3>
+                    <p>Chocolate derretido e granulado.</p>
+                    <span>R$ 59,90</span>
+                </li>
+                <li class="candy-pizza" data-name="Pizza de Banana com Canela" data-price="59.90">
+                    <img src="https://guiadacozinha.com.br/wp-content/uploads/2007/01/pizzadebananaecanela.jpg"
+                        alt="banana pizza">
+                    <h3>Pizza de Banana com Canela</h3>
+                    <p>Bananas caramelizadas, canela e açúcar.</p>
+                    <span>R$ 59,90</span>
+                </li>
+                <li class="candy-pizza" data-name="Pizza de Nutella com Morango" data-price="59.90">
+                    <img src="https://media.istockphoto.com/id/509535100/pt/foto/pizza-de-morango.jpg?s=612x612&w=0&k=20&c=JEEKOTsvI9A_ykDkFzelZ5b5wzZzfuDuPbwXQU9MSJI="
+                        alt="nutella pizza">
+                    <h3>Pizza de Nutella com Morango</h3>
+                    <p>Nutella, morangos frescos e avelãs trituradas.</p>
+                    <span>R$ 59,90</span>
+                </li>
+                <li class="candy-pizza" data-name="Pizza de Coco" data-price="59.90">
+                    <img src="https://harald.com.br/wp-content/uploads/2024/09/pizza-de-chocolate-com-coco-1920x1280.jpg"
+                        alt="morango pizza">
+                    <h3>Pizza de coco</h3>
+                    <p>Coco ralado, leite condensado e chocolate.</p>
+                    <span>R$ 59,90</span>
+                </li>
+        </section>
+        <section id="drinks">
+            <h2>Bebidas</h2>
+            <ul>
+                <li class="drink" data-name="Coca-cola" data-price="11.00">
+                    <img src="https://andinacocacola.vtexassets.com/arquivos/ids/157657/110301_COCA---CCO1.5L.jpg?v=638404085825130000"
+                        alt="Coca-cola">
+                    <h3>Coca-cola</h3>
+                    <p>Refrigerante Coca-cola 1,5 Litros</p>
+                    <span>R$11,00</span>
+                </li>
+                <li class="drink" data-name="Guaraná" data-price="11.00">
+                    <img src="https://savegnagoio.vtexassets.com/arquivos/ids/466017-800-450?v=638763905628500000&width=800&height=450&aspect=true"
+                        alt="Guarana">
+                    <h3>Guaraná</h3>
+                    <p>Refrigerante Guaraná Antarctica 1,5 Litros</p>
+                    <span>R$11,00</span>
+                </li>
+                <li class="drink" data-name="Fanta Laranja" data-price="11.00">
+                    <img src="https://6gpgv15qo7spvwl6littydn.blob.core.windows.net/hybris/master/condor/images/515Wx515H/7894900681000.jpg"
+                        alt="Sprite">
+                    <h3>Sprite</h3>
+                    <p>Refrigerante Sprite 1,5 Litros</p>
+                    <span>R$11,00</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <address id="contact">
+        <h2>Contato</h2>
+        <br>
+        <p class="phone">Telefone e Whatsapp: (48) 1234-5678</p>
+        <p>Email:pizza@gmail.com</p>
+    </address>
+
+    <footer>
+        <p>&copy; 2025 MasterPizza. Todos os direitos reservados.</p>
+        <p>Desenvolvido por <a href="https://github.com/jefersonschmitz" target="_blank">Jeferson Schmitz</a>
+        <p>LinkedIn <a href="https://www.linkedin.com/in/jefersonschmitz" target="_blank">Jeferson Schmitz &#x1F60E;</a>
+    </footer>
+
+</body>
+
+</html>
